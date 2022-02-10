@@ -14,7 +14,7 @@ DESCRIPTION
 CATEGORY
 	Genomic Sequence
     
-USAGE
+USAGE FILENAME
 
     % python reverse-complement.py -i 
     
