@@ -16,7 +16,7 @@ CATEGORY
     
 USAGE FILENAME
 
-    % python reverse-complement.py -i 
+    % python reverse-complement.py -i secuencia.txt
     
     example
     
