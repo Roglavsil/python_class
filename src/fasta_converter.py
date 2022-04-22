@@ -11,25 +11,25 @@ DESCRIPTION
 CATEGORY
         Fasta 
 USAGE
-        Convierte secuencias a fasta.
+        python fasta_converter.py
 ARGUMENTS
         none
 SEE ALSO
         none
 """
 # Obtener el contenido del archivo.
-archivo = open("data/dna_sequences.txt")
+archivo = open("../data/dna_sequences.txt")
 secuencias = archivo.readlines()
 archivo.close()
 
 #Crear archivo de output.
-archivo = open("results/dna_output.fasta", "w")
+archivo = open("../results/dna_output.fasta", "w")
 
 #Eliminar caracteres no deseados y letras minusculas.
 #Agregar simbolo de encabezado a cada secuencia.
 #Escribir en el archivo.
 for secuencia in secuencias:
-    i= ">" + secuencia
+    i= ">" + secuencia.split("   ")[0] + "\n" + secuencia.split("   ")[1]
     archivo.write(i.replace('-', '').upper().replace('\t', '\n'))
 archivo.close()
 
