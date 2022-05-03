@@ -21,14 +21,34 @@ CATEGORY
         
 USAGE
 
+        python fasta_converter.py
+=======
+
     python fasta_converter.py
         
+
 ARGUMENTS
         none
 SEE ALSO
         none
 """
 # Obtener el contenido del archivo.
+
+archivo = open("../data/dna_sequences.txt")
+secuencias = archivo.readlines()
+archivo.close()
+
+#Crear archivo de output.
+archivo = open("../results/dna_output.fasta", "w")
+
+#Eliminar caracteres no deseados y letras minusculas.
+#Agregar simbolo de encabezado a cada secuencia.
+#Escribir en el archivo.
+for secuencia in secuencias:
+    i= ">" + secuencia.split("   ")[0] + "\n" + secuencia.split("   ")[1]
+    archivo.write(i.replace('-', '').upper().replace('\t', '\n'))
+archivo.close()
+=======
 in_file = open("../data/dna_sequences.txt")
 sequences = in_file.readlines()
 in_file.close()
@@ -46,6 +66,7 @@ for sequence in sequences:
     out_file.write(data)
     
 out_file.close()
+
 
 #Imprimir ubicacion del output.
 print("results/dna_output.fasta")
