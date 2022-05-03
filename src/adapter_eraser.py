@@ -18,18 +18,22 @@ SEE ALSO
         none
 """
 # Leer el archivo por líneas y guardarlo.
-archivo = open("data/4_input_adapters.txt")
-secuencias = archivo.readlines()
-archivo.close()
+try:
+        
+        archivo = open("data/4_input_adapters.txt")
+        secuencias = archivo.readlines()
+        archivo.close()
 
-# Creación y escritura del archivo resultado del script.
-archivo = open("results/output_sequences.txt", "w")
+        # Creación y escritura del archivo resultado del script.
+        archivo = open("results/output_sequences.txt", "w")
 
-# Eliminación de los adaptadores.
-# Escribir las secuencias en el archivo output.
-for adaptadores in secuencias:
-    archivo.write(f"{adaptadores[14:-1]}\n")
-archivo.close()
+        # Eliminación de los adaptadores.
+        # Escribir las secuencias en el archivo output.
+        for adaptadores in secuencias:
+                archivo.write(f"{adaptadores[14:-1]}\n")
+        archivo.close()
 
-# Se imprime la ubicación del output.
-print("results/output_sequences.txt")
+        # Se imprime la ubicación del output.
+        print("results/output_sequences.txt")
+except IOError as ex:
+        print(f"El archivo {ex.filename} no se encuentra")
