@@ -29,19 +29,22 @@ print("Bienvenido, por favor introduce tu nombre para empezar a jugar.")
 nom_usuario= input()
 
 while jugar == "si":
+
+        nom_usuario= input("Bienvenido, por favor introduce tu nombre para empezar a jugar.\n")
+        usuario= input("Elija su opcion: piedra, papel o tijeras\n").lower()
+
+        if usuario not in ["piedra","papel","tijeras"]:
+                print("Error! Selecciona una de las opciones disponibles")
+                exit()
         
-        print("Elija su opcion: piedra, papel o tijeras")
-        usuario= input().lower()
-
-
 # La computadora elige su opción.
         opcion_cpu= random.randint(1,3)
         if opcion_cpu == 1:
-                computadora= "piedra"
+                        computadora= "piedra"
         elif opcion_cpu == 2:
-                computadora= "papel"
+                        computadora= "papel"
         else:
-                computadora= "tijeras"
+                        computadora= "tijeras"
         
 #Mostramos ambas elecciones.
         print("La computadora eligio:", computadora)
