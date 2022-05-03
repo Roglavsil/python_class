@@ -11,24 +11,25 @@ DESCRIPTION
 CATEGORY
         Modificacion secuencia DNA. 
 USAGE
-        Eliminar adaptadores.
+        python adapter_eraser.py
 ARGUMENTS
         none
 SEE ALSO
         none
 """
 # Leer el archivo por líneas y guardarlo.
-archivo = open("data/4_input_adapters.txt")
+archivo = open("../data/4_input_adapters.txt")
 secuencias = archivo.readlines()
 archivo.close()
 
 # Creación y escritura del archivo resultado del script.
-archivo = open("results/output_sequences.txt", "w")
+archivo = open("../results/output_sequences.txt", "w")
 
 # Eliminación de los adaptadores.
 # Escribir las secuencias en el archivo output.
 for adaptadores in secuencias:
-    archivo.write(f"{adaptadores[14:-1]}\n")
+    seq = adaptadores[14:-1]
+    archivo.write(f"{seq}\n")
 archivo.close()
 
 # Se imprime la ubicación del output.
