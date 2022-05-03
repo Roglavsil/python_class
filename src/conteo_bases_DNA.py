@@ -1,30 +1,43 @@
 """
 NAME
-        Conteo_bases_DNA
+
+    Conteo_bases_DNA
       
 VERSION
-        1.1
+        
+    1.1
+    
 AUTHOR
-        Rogelio Lael Avila Silva
+
+    Rogelio Lael Avila Silva
         
 DESCRIPTION
-       Se toma como input una secuencia de DNA introudcida por el usuario y se hace un conteo de la aparición de cada base nitrogenada.
+
+    Se toma como input una secuencia de DNA introudcida por el usuario y se hace un conteo 
+    de la aparición de cada base nitrogenada.
+       
 CATEGORY
-        Metodo
+
+    Metodo
        
 USAGE
-        Conteo del numero de A, T, C y G en una secuencia de DNA
+     python Conteo_bases_DNA.py
+     
 ARGUMENTS
 
 SEE ALSO
        
 """
 
-"""
-Primero obtenemos una secuencia de DNA proporcionado por el usuario
-y despues usamos los metodos de python para cadenas para obtener el
-numero de bases.
-"""
-print("Introduzca una secuencia de DNA: ")
-dna= input()
-print(f"Frecuencia de nucleotidos A:{dna.count('A')} C:{dna.count('C')} G:{dna.count('G')} T:{dna.count('T')}")
+
+# Obtener la secuencia de ADN del usuario
+dna= input("Introduzca una secuencia de DNA:\n")
+
+# Realizar conteo de cada base
+freq_A = dna.count('A')
+freq_C = dna.count('C')
+freq_G = dna.count('G')
+freq_T = dna.count('T')
+
+# Imprimir el resultado
+print(f"Frecuencia de nucleotidos A:{freq_A} C:{freq_C} G:{freq_G} T:{freq_T}")
