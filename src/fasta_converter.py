@@ -30,42 +30,30 @@ ARGUMENTS
 SEE ALSO
     none
 """
-# Obtener el contenido del archivo.
-
-archivo = open("../data/dna_sequences.txt")
-secuencias = archivo.readlines()
-archivo.close()
-
-#Crear archivo de output.
-archivo = open("../results/dna_output.fasta", "w")
-
-#Eliminar caracteres no deseados y letras minusculas.
-#Agregar simbolo de encabezado a cada secuencia.
-#Escribir en el archivo.
-for secuencia in secuencias:
-    i= ">" + secuencia.split("   ")[0] + "\n" + secuencia.split("   ")[1]
-    archivo.write(i.replace('-', '').upper().replace('\t', '\n'))
-archivo.close()
-
-in_file = open("../data/dna_sequences.txt")
-sequences = in_file.readlines()
-in_file.close()
-
-#Crear archivo de output.
-out_file = open("../results/dna_output.fasta", "w")
-
-# Eliminar caracteres no deseados y letras minusculas.
-# Agregar simbolo de encabezado a cada secuencia.
-# Escribir en el archivo.
-for sequence in sequences:
-    header = sequence.split("   ")[0]
-    seq = sequence.split("   ")[1].replace('-', '').upper().replace('\t', '\n')
-    data = ">" + header + "\n" + seq
-    out_file.write(data)
-    
-out_file.close()
 
 
-#Imprimir ubicacion del output.
-print("results/dna_output.fasta")
+try:
+    # Obtener el contenido del archivo.
+    in_file = open("../data/dna_sequences.txt")
+    sequences = in_file.readlines()
+    in_file.close()
+
+    #Crear archivo de output.
+    out_file = open("../results/dna_output.fasta", "w")
+
+    # Eliminar caracteres no deseados y letras minusculas.
+    # Agregar simbolo de encabezado a cada secuencia.
+    # Escribir en el archivo.
+    for sequence in sequences:
+        header = sequence.split("   ")[0]
+        seq = sequence.split("   ")[1].replace('-', '').upper().replace('\t', '\n')
+        data = ">" + header + "\n" + seq
+        out_file.write(data)
         
+    out_file.close()
+
+
+    #Imprimir ubicacion del output.
+    print("results/dna_output.fasta")
+except IOError as ex:
+        print(f"El archivo {ex.filename} no se encuentra en la dirección indicada o no existe.")

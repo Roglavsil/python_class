@@ -29,15 +29,22 @@ SEE ALSO
        
 """
 
-
+try:
+    
 # Obtener la secuencia de ADN del usuario
-dna= input("Introduzca una secuencia de DNA:\n")
-
+    dna= input("Introduzca una secuencia de DNA:\n").upper()
+    for base in dna:
+        #Comprobar que solo haya nucleotidos en la cadena.
+        if base not in ["A", "C", "G", "T"]:
+            raise ValueError()
+    
 # Realizar conteo de cada base
-freq_A = dna.count('A')
-freq_C = dna.count('C')
-freq_G = dna.count('G')
-freq_T = dna.count('T')
+    freq_A = dna.count('A')
+    freq_C = dna.count('C')
+    freq_G = dna.count('G')
+    freq_T = dna.count('T')
 
 # Imprimir el resultado
-print(f"Frecuencia de nucleotidos A:{freq_A} C:{freq_C} G:{freq_G} T:{freq_T}")
+    print(f"Frecuencia de nucleotidos A:{freq_A} C:{freq_C} G:{freq_G} T:{freq_T}")
+except ValueError:
+    print("La secuencia no contiene solamente bases.")

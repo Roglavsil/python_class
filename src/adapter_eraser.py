@@ -29,9 +29,11 @@ ARGUMENTS
 SEE ALSO
         none        
 """
+import os
+
 try:
         # Leer el archivo por líneas y guardarlo.
-        archivo = open("../data/4_input_adapters.txt")
+        archivo = open("../data/test.txt")
         secuencias = archivo.readlines()
         archivo.close()
 
@@ -49,4 +51,4 @@ try:
         # Se imprime la ubicación del output.
         print("results/output_sequences.txt")
 except IOError as ex:
-        print(f"El archivo {ex.filename} no se encuentra")
+        print(f"El archivo {ex.filename} no se encuentra en la dirección indicada o no existe.")

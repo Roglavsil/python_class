@@ -24,19 +24,16 @@ SEE ALSO
 import random
 jugar= "si"
 
+nom_usuario= input("Bienvenido, por favor introduce tu nombre para empezar a jugar.\n")
 # Definir opciones validas y el usuario selecciona su opción.
-print("Bienvenido, por favor introduce tu nombre para empezar a jugar.")
-nom_usuario= input()
-
 while jugar == "si":
 
-        nom_usuario= input("Bienvenido, por favor introduce tu nombre para empezar a jugar.\n")
         usuario= input("Elija su opcion: piedra, papel o tijeras\n").lower()
 
-        if usuario not in ["piedra","papel","tijeras"]:
+        while usuario not in ["piedra","papel","tijeras"]:
                 print("Error! Selecciona una de las opciones disponibles")
-                exit()
-        
+                usuario= input("Elija su opcion: piedra, papel o tijeras\n").lower()
+                
 # La computadora elige su opción.
         opcion_cpu= random.randint(1,3)
         if opcion_cpu == 1:
