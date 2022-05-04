@@ -11,7 +11,7 @@ python 3.10.2
 
 [Guia de instalacion de python](https://github.com/PhillBet/VSCodeConfigForPython/blob/main/Installing_Python_3_10.md)
 
-[Guia de instalacion de VSCode](https://github.com/PhillBet/VSCodeConfigForPython/blob/main/Installing_VSCode.md)"
+[Guia de instalacion de VSCode](https://github.com/PhillBet/VSCodeConfigForPython/blob/main/Installing_VSCode.md)
 
 [Guia de configuracion de VSCode](https://github.com/PhillBet/VSCodeConfigForPython/blob/main/VSCode_Config.md)
 
