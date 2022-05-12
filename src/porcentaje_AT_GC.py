@@ -5,7 +5,7 @@ NAME
       
 VERSION
 
-        1.1
+        2.0
 AUTHOR
 
         Rogelio Avila
@@ -24,12 +24,29 @@ USAGE
         python porcentaje_AT_GC.py
         
 ARGUMENTS
+        
+        positional arguments:
+        path        Path al archivo con secuencias
+
+        options:
+
+        -h, --help  show this help message and exit
+
 SEE ALSO       
 """
+
+import argparse
+
+# Obtener el path al leer los argumentos.
+at_parser= argparse.ArgumentParser(description='Script que calcula el porcentaje de AT y GC de una secuencia.')
+
+at_parser.add_argument("input", metavar="path", help="Path al archivo con secuencias")
+
+arguments= at_parser.parse_args()
+
 try:
         #Abrir el archivo y copiar su contenido a una variable.
-        nom_archivo=input("Escriba la direccion de su archivo y el nombre de este:\n")
-        archivo=open(nom_archivo)
+        archivo=open(arguments.input)
         contenido_archivo=archivo.read()
         archivo.close()
 
@@ -37,7 +54,7 @@ try:
         print(f"La secuencia del archivo es: {contenido_archivo}\n")
 
         # Quitar saltos de linea obtenemos la longitud de la secuencia
-        DNAseq = contenido_archivo.rstrip('\n')
+        DNAseq = contenido_archivo.replace("\n", "")  
         
         #Comprobar que solo haya nucleotidos en la cadena.
         for base in DNAseq:
