@@ -5,7 +5,7 @@ NAME
 VERSION
         1.1
 AUTHOR
-        Rogelio Lael Avila Silva
+        Rogelio Avila
         
 DESCRIPTION
        Juego recreativo de piedra, papel o tijera.
@@ -20,64 +20,65 @@ ARGUMENTS
 SEE ALSO
         none
 """
-#Importar la libreria necesaria para aleatoriedad.
+# Importar la libreria necesaria para aleatoriedad.
 import random
-jugar= "si"
+jugar = "si"
 
-nom_usuario= input("Bienvenido, por favor introduce tu nombre para empezar a jugar.\n")
+nom_usuario = input(
+    "Bienvenido, por favor introduce tu nombre para empezar a jugar.\n")
 # Definir opciones validas y el usuario selecciona su opción.
 while jugar == "si":
 
-        usuario= input("Elija su opcion: piedra, papel o tijeras\n").lower()
+    usuario = input("Elija su opcion: piedra, papel o tijeras\n").lower()
 
-        while usuario not in ["piedra","papel","tijeras"]:
-                print("Error! Selecciona una de las opciones disponibles")
-                usuario= input("Elija su opcion: piedra, papel o tijeras\n").lower()
-                
+    while usuario not in ["piedra", "papel", "tijeras"]:
+        print("Error! Selecciona una de las opciones disponibles")
+        usuario = input("Elija su opcion: piedra, papel o tijeras\n").lower()
+
 # La computadora elige su opción.
-        opcion_cpu= random.randint(1,3)
-        if opcion_cpu == 1:
-                        computadora= "piedra"
-        elif opcion_cpu == 2:
-                        computadora= "papel"
-        else:
-                        computadora= "tijeras"
-        
-#Mostramos ambas elecciones.
-        print("La computadora eligio:", computadora)
-        print("Tu eleccion fue:", usuario)
+    opcion_cpu = random.randint(1, 3)
+    if opcion_cpu == 1:
+        computadora = "piedra"
+    elif opcion_cpu == 2:
+        computadora = "papel"
+    else:
+        computadora = "tijeras"
 
-#Definimos todos los casos.
+# Mostramos ambas elecciones.
+    print("La computadora eligio:", computadora)
+    print("Tu eleccion fue:", usuario)
+
+# Definimos todos los casos.
 # Igualdad es empate.
-        if usuario == computadora:
-                print("Empate. No hay un ganador")
+    if usuario == computadora:
+        print("Empate. No hay un ganador")
 
-#Si el usuario eligio tijera.
+# Si el usuario eligio tijera.
 # Tijera gana a papel. Usuario gana.
 # Tijera pierde contra piedra. Computadora gana.
-        if usuario == "tijeras":
-                if computadora == "papel":
-                        print("Felicidades has ganado", nom_usuario)
-                elif computadora == "piedra": 
-                        print("Has perdido", nom_usuario)
+    if usuario == "tijeras":
+        if computadora == "papel":
+            print("Felicidades has ganado", nom_usuario)
+        elif computadora == "piedra":
+            print("Has perdido", nom_usuario)
 
-#Si el usuario eligio papel.
+# Si el usuario eligio papel.
 # Papel gana a la piedra. Usuario gana.
 # Papel pierde contra tijeras. Computadora gana.
-        if usuario == "papel":
-                if computadora == "piedra":
-                        print("Felicidades has ganado", nom_usuario)
-                elif computadora == "tijeras": 
-                        print("Has perdido", nom_usuario)
+    if usuario == "papel":
+        if computadora == "piedra":
+            print("Felicidades has ganado", nom_usuario)
+        elif computadora == "tijeras":
+            print("Has perdido", nom_usuario)
 
-#Si el usuario eligio papel.
+# Si el usuario eligio papel.
 # Piedra gana a tijeras. Usuario gana.
 # Piedra pierde contra papel. Computadora gana.
-        if usuario == "piedra":
-                if computadora == "tijeras":
-                        print("La buena piedra nada le gana, felicitaciones", nom_usuario)
-                elif computadora == "papel": 
-                        print("Has perdido", nom_usuario)
-        print("¿Desea volver a jugar? (si/no)")
-        jugar = input()
+    if usuario == "piedra":
+        if computadora == "tijeras":
+            print("La buena piedra nada le gana, felicitaciones", nom_usuario)
+        elif computadora == "papel":
+            print("Has perdido", nom_usuario)
+    print("¿Desea volver a jugar? (si/no)")
+    jugar = input()
 print("\n\n¡Gracias por jugar, vuelve pronto!\n\n")
