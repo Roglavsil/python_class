@@ -5,7 +5,7 @@ NAME
       
 VERSION
 
-        2.0
+        2.0.0
 AUTHOR
 
         Rogelio Avila Silva
