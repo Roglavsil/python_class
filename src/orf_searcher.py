@@ -24,7 +24,11 @@ USAGE
         
 ARGUMENTS
         
-        None
+        options:
+        -h, --help            
+            show this help message and exit
+        -i INPUT, --input INPUT
+            Path al archivo fasta
 
 SEE ALSO
 
