@@ -34,13 +34,21 @@ SEE ALSO
 # ===========================================================================
 # =                            Imports
 # ===========================================================================
-
+from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqUtils import nt_search
-
+import argparse
 # ===========================================================================
 # =                            Function
 # ===========================================================================
+
+bio_parser = argparse.ArgumentParser(
+    description="Script para buscar orf más largo en archivo fasta")
+# Crear los argumentos que recibirá el programa para funcionar.
+bio_parser.add_argument(
+    "-i", "--input", help="Path al archivo fasta", required=True)
+
+arguments = bio_parser.parse_args()
 
 
 def orf_searcher(Secuencia):
@@ -66,9 +74,11 @@ def orf_searcher(Secuencia):
         if len(longest_orf) < len(orf):
             longest_orf = orf
     return (longest_orf)
+
+
 # ===========================================================================
 # =                            Main
 # ===========================================================================
-
-
-print(orf_searcher('AGCCATGTAGCTAACTCAGGTTACATGGGGATGACCCCGCGACTTGGATTAGAGTCTCTTTTGGAATAAGCCTGAATGATCCGAGTAGCATCTCAG'))
+for sec in SeqIO.parse(arguments.input, 'fasta'):
+    print(f'>{sec.id}')
+    print(orf_searcher(sec.seq))
