@@ -99,4 +99,4 @@ def resumen(path, genes):
 
 
 # Se utiliza la función previamente hecha con los argumentos del script.
-gengb_collector(arguments.input, arguments.genes)
+resumen(arguments.input, arguments.genes)
